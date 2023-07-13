@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+ <title>Crear futbolista</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Crear futbolista 
+{% endblock h1_header %}
+
+{% block contenido %}
+<p>{{mensaje}}</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{formulario}}
+    </table>
+    <button>Crear</button>
+
+</form>
+{% endblock contenido %}
