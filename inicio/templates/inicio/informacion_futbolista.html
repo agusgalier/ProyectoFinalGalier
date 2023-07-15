@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+ <title>Futbolista</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Datos del futbolista {{futbolista.nombre}}
+{% endblock h1_header %}
+
+{% block contenido %}
+<li>Edad:{{futbolista.edad}}</li>
+<li>Fecha de nacimiento:{{futbolista.fecha_nacimiento}}</li>
+{% endblock contenido %}

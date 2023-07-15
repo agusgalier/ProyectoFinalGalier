@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+ <title>Eliminar futbolista</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Eliminar futbolista {{futbolista.nombre}}
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action={% url 'inicio:eliminar_futbolista' futbolista.id %} method="post">
+    {% csrf_token %}
+    <p>Se eliminara a {{futbolista}}</p>
+    <button>Confirmar</button>
+
+</form>
+{% endblock contenido %}

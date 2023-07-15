@@ -9,8 +9,8 @@ Crear futbolista
 {% endblock h1_header %}
 
 {% block contenido %}
-<p>{{mensaje}}</p>
-<form action="" method="post">
+
+<form action={% url 'inicio:crear_futbolista' %} method="post">
     {% csrf_token %}
     <table>
     {{formulario}}

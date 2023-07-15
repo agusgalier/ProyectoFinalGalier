@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+ <title>Futbolistas</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Futbolistas
+{% endblock h1_header %}
+
+{% block contenido %}
+<button>
+<a  class="navbar-brand" href={% url 'inicio:crear_futbolista' %}>Crear futbolista</a>
+</button>
+
+<form action={% url 'inicio:futbolistas' %}>
+    {{formulario}}  
+    <button>Buscar</button>
+</form>
+{% if lista_futbolistas %}
+{% for futbolista in lista_futbolistas  %}
+<li>
+    <a href={% url 'inicio:informacion_futbolista' futbolista.id %}>{{futbolista}}</a>
+    <button>
+    <a class="navbar-brand" href={% url 'inicio:modificar_futbolista' futbolista.id %}>Editar</a>    
+    </button>
+    <button>
+    <a class="navbar-brand" href={% url 'inicio:eliminar_futbolista' futbolista.id %}>Eliminar</a>
+    </button>
+</li>
+{% endfor %}
+{% else %}
+<p>No se encontraron datos</p>
+{% endif %}
+{% endblock contenido %}
