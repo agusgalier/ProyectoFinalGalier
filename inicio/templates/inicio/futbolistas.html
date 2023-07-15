@@ -12,15 +12,14 @@ Futbolistas
 <button>
 <a  class="navbar-brand" href={% url 'inicio:crear_futbolista' %}>Crear futbolista</a>
 </button>
-
-<form action={% url 'inicio:futbolistas' %}>
+<form action="" method="get">
     {{formulario}}  
     <button>Buscar</button>
-</form>
-{% if lista_futbolistas %}
-{% for futbolista in lista_futbolistas  %}
+</form> 
+{% if futbolistas %}
+{% for futbolista in futbolistas  %}
 <li>
-    <a href={% url 'inicio:informacion_futbolista' futbolista.id %}>{{futbolista}}</a>
+    <a class="navbar-brand" href={% url 'inicio:informacion_futbolista' futbolista.id %}>{{futbolista}}</a>
     <button>
     <a class="navbar-brand" href={% url 'inicio:modificar_futbolista' futbolista.id %}>Editar</a>    
     </button>

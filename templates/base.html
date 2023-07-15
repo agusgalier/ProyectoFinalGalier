@@ -24,7 +24,16 @@
             <div class="container">
                 <a class="navbar-brand" href={% url 'inicio:inicio' %}>Inicio</a>
                 <a class="navbar-brand" href={% url 'inicio:futbolistas' %}>Futbolistas</a>
-                <a class="btn btn-primary" href='#'>Iniciar sesion</a>
+                {% if request.user.is_authenticated %}
+                {% if request.user.infoextra.avatar%}
+                <img src={{request.user.infoextra.avatar.url}} alt="" height='40px  '>
+                {% endif %} 
+                <a class="navbar-brand" href={% url 'usuarios:editar_perfil' %}>{{request.user.username}}</a>
+                <a class="btn btn-secondary" href={% url 'usuarios:logout' %}>Logout</a>
+                {% else %}
+                <a class="btn btn-primary" href={% url 'usuarios:login' %}>Login</a>
+                <a class="btn btn-primary" href={% url 'usuarios:registrarse' %}>Registrarse</a>
+                {% endif %}
             </div>
         </nav>
         <!-- Masthead-->

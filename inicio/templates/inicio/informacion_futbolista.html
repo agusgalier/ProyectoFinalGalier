@@ -11,4 +11,5 @@ Datos del futbolista {{futbolista.nombre}}
 {% block contenido %}
 <li>Edad:{{futbolista.edad}}</li>
 <li>Fecha de nacimiento:{{futbolista.fecha_nacimiento}}</li>
+<li>Descripcion:{{futbolista.descripcion | safe}}</li>
 {% endblock contenido %}

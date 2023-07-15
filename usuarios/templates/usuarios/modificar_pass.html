@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
 
 {% block title_head %}
- <title>Crear futbolista</title>
+ <title>Modificar pass</title>
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear futbolista 
+Modificar pass
 {% endblock h1_header %}
 
 {% block contenido %}
 
-<form action={% url 'inicio:crear_futbolista' %} method="post">
+<form action={% url 'usuarios:modificar_pass' %} method="POST">
     {% csrf_token %}
     <table>
     {{form}}
-    {{form.media}}
     </table>
-    <button>Crear</button>
+    <button>Modificar</button>
 
 </form>
 {% endblock contenido %}
