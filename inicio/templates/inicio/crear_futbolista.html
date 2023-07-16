@@ -10,7 +10,7 @@ Crear futbolista
 
 {% block contenido %}
 
-<form action={% url 'inicio:crear_futbolista' %} method="post">
+<form action={% url 'inicio:crear_futbolista' %} method="post" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
     {{form}}

@@ -10,7 +10,7 @@ Editar futbolista {{futbolista.nombre}}
 
 {% block contenido %}
 
-<form action={% url 'inicio:modificar_futbolista' futbolista.id %} method="post">
+<form action={% url 'inicio:modificar_futbolista' futbolista.id %} method="post" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
     {{form}}

@@ -48,13 +48,25 @@ def editar_perfil(request):
         formulario=MiFormularioEditarPerfil(request.POST,request.FILES,instance=request.user)
         if formulario.is_valid():
             avatar=formulario.cleaned_data.get('avatar')
+            edad=formulario.cleaned_data.get('edad')
+            fecha_nacimiento=formulario.cleaned_data.get('fecha_nacimiento')
+            descripcion=formulario.cleaned_data.get('descripcion')
+            if edad :
+                info_extra_user.edad=edad
+                info_extra_user.save()
+            if fecha_nacimiento:
+                info_extra_user.fecha_nacimiento=fecha_nacimiento
+                info_extra_user.save()    
+            if descripcion:
+                info_extra_user.descripcion=descripcion
+                info_extra_user.save()    
             if avatar:
                 info_extra_user.avatar=avatar
                 info_extra_user.save()
             formulario.save()
-            return redirect('inicio:inicio')
+            return redirect('usuarios:mostrar_perfil')
     else:
-        formulario=MiFormularioEditarPerfil(initial={'avatar':info_extra_user.avatar},instance=request.user)     
+        formulario=MiFormularioEditarPerfil(initial={'avatar':info_extra_user.avatar,'edad':info_extra_user.edad,'fecha_nacimiento':info_extra_user.fecha_nacimiento,'descripcion':info_extra_user.descripcion},instance=request.user)     
     return render(request,'usuarios/editar_perfil.html',{'formulario':formulario})
 
 class ModificarPass(LoginRequiredMixin,PasswordChangeView):

@@ -9,11 +9,18 @@ Perfil
 {% endblock h1_header %}
 
 {% block contenido %}
-
+{% if user.infoextra.avatar%}
+<img src={{request.user.infoextra.avatar.url}} alt="" height='400px'>
+{% endif %}
 <h2>Username:{{user.username}}</h2>
 <h4>Nombre:{{user.first_name}}</h4>
 <h4>Apellido:{{user.last_name}}</h4>
 <h4>Email:{{user.email}}</h4>
+<h4>Edad:{{request.user.infoextra.edad}}</h4>
+<h4>Fecha de nacimiento:{{request.user.infoextra.fecha_nacimiento}}</h4>
+<p>Descripción:{{request.user.infoextra.descripcion}}</p>
+
+
 <button type='button'><a class="navbar-brand" href={% url 'usuarios:editar_perfil' %}>Editar usuario</a></button>
 
 {% endblock contenido %}

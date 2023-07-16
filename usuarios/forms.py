@@ -18,7 +18,10 @@ class MiFormularioEditarPerfil(UserChangeForm):
     first_name=forms.CharField(label='Nombrre',max_length=20)
     last_name=forms.CharField(label='Apellido',max_length=20)
     avatar=forms.ImageField(required=False)
+    edad=forms.IntegerField(required=False)
+    fecha_nacimiento=forms.DateField(required=False)
+    descripcion=forms.CharField(required=False, max_length=50)
     
     class Meta:
         model=User
-        fields=['email','first_name','last_name','avatar']
+        fields=['email','first_name','last_name','avatar','edad','fecha_nacimiento','descripcion']

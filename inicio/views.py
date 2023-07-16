@@ -20,7 +20,7 @@ def about(request):
 class CrearFutbolista(CreateView):
     model=Futbolista
     template_name='inicio/crear_futbolista.html'
-    fields=['nombre','posicion','edad','fecha_nacimiento','descripcion','autor']
+    fields=['nombre','posicion','edad','fecha_nacimiento','descripcion','autor','imagen']
     success_url=reverse_lazy('inicio:futbolistas')
 
 class ListaFutbolistas(ListView):
@@ -47,7 +47,7 @@ class InformacionFutbolista(DetailView):
 
 class ModificarFutbolista(LoginRequiredMixin,UpdateView):
     model = Futbolista
-    fields= ['nombre','posicion','edad','fecha_nacimiento','descripcion']
+    fields= ['nombre','posicion','edad','fecha_nacimiento','descripcion','imagen']
     template_name = "inicio/modificar_futbolista.html"
     success_url=reverse_lazy('inicio:futbolistas')
     

@@ -6,3 +6,6 @@ from django.contrib.auth.models import User
 class InfoExtra(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     avatar=models.ImageField(upload_to='avatares',null=True,blank=True)
+    edad=models.IntegerField(null=True)
+    fecha_nacimiento=models.DateField(null=True)
+    descripcion=models.TextField(null=True)

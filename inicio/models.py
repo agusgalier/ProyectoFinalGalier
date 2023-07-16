@@ -10,6 +10,7 @@ class Futbolista(models.Model):
     fecha_nacimiento=models.DateField(null=True)
     descripcion=RichTextField(null=True)
     autor=models.CharField(max_length=30,null=True)
+    imagen=models.ImageField(upload_to='imagenes_futbolista',null=True,blank=True)
     
     def __str__ (self):
             return f'Nombre:{self.nombre}-Edad:{self.edad}'
