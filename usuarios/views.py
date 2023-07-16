@@ -38,6 +38,9 @@ def registrarse(request):
     formulario=MiFormularioCreacionUsuarios()
     return render(request,'usuarios/registrarse.html',{'formulario':formulario})    
 
+def mostrar_perfil(request):
+    return render(request,'usuarios/mostrar_perfil.html')
+
 @login_required 
 def editar_perfil(request):
     info_extra_user=request.user.infoextra 

@@ -14,10 +14,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def inicio(request):
     return render(request,'inicio/inicio.html')
 
+def about(request):
+    return render(request,'inicio/about.html')
+
 class CrearFutbolista(CreateView):
     model=Futbolista
     template_name='inicio/crear_futbolista.html'
-    fields=['nombre','edad','fecha_nacimiento','descripcion']
+    fields=['nombre','posicion','edad','fecha_nacimiento','descripcion','autor']
     success_url=reverse_lazy('inicio:futbolistas')
 
 class ListaFutbolistas(ListView):
@@ -44,7 +47,7 @@ class InformacionFutbolista(DetailView):
 
 class ModificarFutbolista(LoginRequiredMixin,UpdateView):
     model = Futbolista
-    fields= ['nombre','edad','fecha_nacimiento','descripcion']
+    fields= ['nombre','posicion','edad','fecha_nacimiento','descripcion']
     template_name = "inicio/modificar_futbolista.html"
     success_url=reverse_lazy('inicio:futbolistas')
     
